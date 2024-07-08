@@ -2,7 +2,7 @@
 
 var gulp       	 = require('gulp'),
     browserSync	 = require('browser-sync').create(),
-    sass       	 = require('gulp-sass'),
+    sass       	 = require('gulp-sass')(require('sass')),
     autoprefixer = require('gulp-autoprefixer'),
     // babel        = require('gulp-babel'),
     sourcemaps   = require('gulp-sourcemaps'),
@@ -112,4 +112,4 @@ gulp.task('serve', gulp.series('html', 'sass', 'js', 'img', 'docs', function() {
 }));
 
 
-gulp.task('default', gulp.series('clean', 'serve'));
+gulp.task('default', gulp.series('clean', 'html', 'sass', 'js', 'img', 'docs'));
